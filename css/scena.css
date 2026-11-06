@@ -1,0 +1,159 @@
+/* Сцена «было → стало» — стили прототипа. Отдельный файл: общий syntax.css (Tailwind) не трогаем. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;background:#0b0c10;color:#ececf2;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* Сцена: на компьютере — 3 экрана прокрутки с залипающим окном; на телефоне — обычный экран без залипания. */
+.scena-sekciya{position:relative;height:100vh;height:100svh;background:#0b0c10}
+@media (hover:hover) and (pointer:fine){.scena-sekciya{height:300vh;height:300svh}}
+.scena-okno{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;touch-action:pan-y}
+.scena-do,.scena-posle{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scena-do{object-fit:cover}
+.scena-posle{pointer-events:none}
+
+/* Затемнение под текстом — одинаковое на «до» и «после», в трансформации не участвует. */
+.scena-zatemnenie{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    radial-gradient(ellipse 54% 42% at 50% 25%, rgba(8,9,14,.84), rgba(8,9,14,.62) 42%, rgba(8,9,14,0) 78%),
+    linear-gradient(to top, rgba(8,9,14,.45), rgba(8,9,14,0) 16%)}
+
+/* Шапка */
+.scena-shapka{position:absolute;left:0;right:0;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;
+  padding:12px 28px;background:linear-gradient(to bottom, rgba(8,9,14,.62), rgba(8,9,14,0))}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;min-height:44px}
+.logo svg{height:28px;color:#a9a9ff}
+.logo span{font:600 22px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:-.01em}
+.menyu{display:flex;align-items:center;gap:6px}
+.menyu a{color:rgba(255,255,255,.88);text-decoration:none;font-size:15px;padding:0 12px;min-height:44px;display:flex;align-items:center;border-radius:8px}
+.menyu a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.menyu a.knopka{background:#5B5BD6;color:#fff;font-weight:600;margin-left:10px;padding:0 18px}
+.menyu a.knopka:hover{background:#4c4cc4}
+#nav-burger{display:none;width:44px;height:44px;margin-left:8px;padding:10px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(8,9,14,.4);color:#fff;cursor:pointer}
+#nav-burger svg{width:100%;height:100%}
+#nav-menu{position:absolute;top:66px;right:16px;min-width:220px;padding:6px;border-radius:12px;background:rgba(14,15,22,.96);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+#nav-menu[hidden]{display:none}
+#nav-menu a{display:flex;align-items:center;min-height:44px;padding:0 14px;color:#fff;text-decoration:none;border-radius:8px;font-size:16px}
+#nav-menu a:hover{background:rgba(255,255,255,.08)}
+
+/* Главный текст — сверху по центру, над кровлей: доска, стол, станки и торец остаются открытыми. */
+.scena-tekst{position:absolute;z-index:3;left:50%;top:clamp(92px,13vh,150px);transform:translateX(-50%);
+  width:min(920px,90vw);text-align:center;pointer-events:none}
+.scena-tekst h1{margin:0 0 .32em;color:#fff;font-weight:700;font-size:clamp(34px,4.6vw,76px);line-height:1.04;letter-spacing:-.025em;
+  text-shadow:0 2px 30px rgba(0,0,0,.55)}
+.scena-tekst .pod{margin:0 auto .9em;max-width:740px;color:rgba(255,255,255,.93);font-size:clamp(17px,1.5vw,24px);line-height:1.4;
+  text-shadow:0 1px 16px rgba(0,0,0,.65)}
+.scena-tekst .stroka{display:inline-block;margin:0;padding:7px 16px;border-radius:999px;background:rgba(8,9,14,.58);
+  color:#ececff;font:600 clamp(13px,1vw,16px)/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;
+  text-shadow:0 1px 12px rgba(0,0,0,.7)}
+.bez-teksta .scena-tekst,.bez-teksta .scena-zatemnenie{display:none}
+
+/* Подсказки */
+.scena-prokrutka{position:absolute;z-index:3;left:50%;bottom:20px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;
+  color:rgba(255,255,255,.82);font-size:14px;pointer-events:none;transition:opacity .4s;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.scena-prokrutka svg{width:22px;height:22px;animation:vniz 1.8s ease-in-out infinite}
+.scena-prokrutka.skryta{opacity:0}
+@keyframes vniz{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.scena-kist-podskazka{display:none;position:absolute;z-index:3;left:50%;bottom:76px;transform:translateX(-50%);padding:9px 16px;border-radius:999px;
+  background:rgba(8,9,14,.62);color:#fff;font-size:14px;pointer-events:none}
+.s-podskazkoj.s-kistyu.posle-gotovo .scena-kist-podskazka{display:block}
+@media (prefers-reduced-motion:reduce){.scena-prokrutka svg{animation:none}}
+
+/* Телефон */
+@media (max-width:767px){
+  .scena-shapka{padding:10px 16px}
+  .menyu a:not(.knopka){display:none}
+  #nav-burger{display:block}
+  .menyu a.knopka{margin-left:0;padding:0 14px;font-size:14px}
+  .logo span{font-size:19px}
+  .logo svg{height:24px}
+  .scena-tekst{top:84px;width:calc(100vw - 32px)}
+  .scena-tekst h1{font-size:clamp(30px,8.6vw,40px)}
+  .scena-tekst .pod{font-size:16px}
+  .scena-zatemnenie{background:
+    linear-gradient(to bottom, rgba(8,9,14,.74) 0%, rgba(8,9,14,.55) 32%, rgba(8,9,14,0) 58%),
+    linear-gradient(to top, rgba(8,9,14,.45), rgba(8,9,14,0) 16%)}
+}
+
+/* Экраны с текстом сбоку (фасад, приёмная, кабинет — класс polozhenie). Положение текста выбирается на панели: слева / справа / сверху / снизу.
+   Затемнение переезжает вместе с текстом; кнопки кликаются, остальной текст пропускает кисть. */
+.polozhenie .scena-tekst.ofer{left:auto;right:auto;top:auto;bottom:auto;transform:none;width:min(700px,42vw);text-align:left}
+.ofer .plashka{display:inline-flex;align-items:center;gap:9px;margin:0 0 18px;padding:7px 14px;border-radius:999px;background:rgba(8,9,14,.6);
+  color:rgba(255,255,255,.9);font-size:clamp(13px,.95vw,15px);line-height:1.3;text-shadow:none}
+.ofer .plashka b{color:#fff}
+.ofer .tochka{flex:none;width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.22)}
+.ofer h2{margin:0 0 .7em;color:#fff;font-weight:700;font-size:clamp(28px,2.7vw,48px);line-height:1.08;letter-spacing:-.02em;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.ofer .akcent{color:#b4b4ff;white-space:nowrap}
+.ofer .knopki{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 22px}
+.ofer .knopki a{pointer-events:auto;display:inline-flex;align-items:center;min-height:50px;padding:0 24px;border-radius:12px;
+  font-weight:600;font-size:16px;text-decoration:none;transition:background .2s,border-color .2s}
+.ofer .k-glavnaya{background:#5B5BD6;color:#fff}
+.ofer .k-glavnaya:hover{background:#4c4cc4}
+.ofer .k-vtoraya{color:#fff;border:1px solid rgba(255,255,255,.42);background:rgba(8,9,14,.38)}
+.ofer .k-vtoraya:hover{border-color:rgba(255,255,255,.75)}
+.ofer .knopki a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ofer .cifry{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0;padding:0;list-style:none;
+  font:500 clamp(12px,.85vw,14px)/1.4 "JetBrains Mono",ui-monospace,monospace;color:rgba(255,255,255,.78);text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.ofer .cifry b{color:#fff;font-weight:700}
+
+.polozhenie.tekst-sleva .scena-tekst.ofer{left:clamp(24px,5vw,96px);top:50%;transform:translateY(-50%)}
+.polozhenie.tekst-sprava .scena-tekst.ofer{right:clamp(24px,5vw,96px);top:50%;transform:translateY(-50%)}
+.polozhenie.tekst-sverhu .scena-tekst.ofer{left:50%;top:clamp(40px,8vh,96px);transform:translateX(-50%);width:min(940px,88vw);text-align:center}
+.polozhenie.tekst-snizu .scena-tekst.ofer{left:50%;bottom:clamp(28px,6vh,64px);transform:translateX(-50%);width:min(1040px,90vw);text-align:center}
+.polozhenie.tekst-sverhu .ofer .knopki,.polozhenie.tekst-snizu .ofer .knopki,
+.polozhenie.tekst-sverhu .ofer .cifry,.polozhenie.tekst-snizu .ofer .cifry{justify-content:center}
+
+.polozhenie.tekst-sleva .scena-zatemnenie{background:linear-gradient(to right, rgba(8,9,14,.84) 0%, rgba(8,9,14,.62) 30%, rgba(8,9,14,0) 52%)}
+.polozhenie.tekst-sprava .scena-zatemnenie{background:linear-gradient(to left, rgba(8,9,14,.84) 0%, rgba(8,9,14,.62) 30%, rgba(8,9,14,0) 52%)}
+.polozhenie.tekst-sverhu .scena-zatemnenie{background:radial-gradient(ellipse 58% 48% at 50% 24%, rgba(8,9,14,.84), rgba(8,9,14,.6) 45%, rgba(8,9,14,0) 80%)}
+.polozhenie.tekst-snizu .scena-zatemnenie{background:linear-gradient(to top, rgba(8,9,14,.86) 0%, rgba(8,9,14,.62) 30%, rgba(8,9,14,0) 56%)}
+
+@media (max-width:767px){
+  .scena-sekciya.polozhenie .scena-tekst.ofer{left:16px;right:16px;top:20px;bottom:auto;transform:none;width:auto;text-align:left}
+  .scena-sekciya.polozhenie .ofer .knopki,.scena-sekciya.polozhenie .ofer .cifry{justify-content:flex-start}
+  .ofer h2{font-size:clamp(24px,7vw,32px)}
+  .ofer .plashka{margin-bottom:12px}
+  .ofer .knopki{gap:8px;margin-bottom:14px}
+  .ofer .knopki a{min-height:46px;padding:0 16px;font-size:15px}
+  .ofer .cifry{gap:4px 16px;font-size:12px}
+  .scena-sekciya.polozhenie .scena-zatemnenie{background:
+    linear-gradient(to bottom, rgba(8,9,14,.8) 0%, rgba(8,9,14,.62) 42%, rgba(8,9,14,0) 70%)}
+}
+
+/* Приёмная, кабинет, диспетчерская (06.11): середина картинки — стойка, робот, экраны, поэтому текст уже, а затемнение короче, чем на фасаде. */
+.priyomnaya .scena-tekst.ofer,.kabinet .scena-tekst.ofer,.dispetcherskaya .scena-tekst.ofer{width:min(560px,31vw)}
+.ofer .metka{margin:0 0 14px;color:#b4b4ff;font:600 clamp(12px,.9vw,14px)/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;
+  text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.75)}
+.ofer .abzac{margin:0 0 22px;color:rgba(255,255,255,.92);font-size:clamp(15px,1.1vw,19px);line-height:1.5;text-shadow:0 1px 14px rgba(0,0,0,.75)}
+.ofer .plan{display:inline-block;margin:0;padding:8px 16px;border-radius:12px;background:rgba(8,9,14,.6);color:rgba(255,255,255,.82);
+  font:500 clamp(13px,.95vw,16px)/1.5 "JetBrains Mono",ui-monospace,monospace}
+.ofer .plan b{color:#fff;font-weight:700}
+.ofer .plan .akcent{color:#b4b4ff}
+.priyomnaya.tekst-sleva .scena-zatemnenie,.kabinet.tekst-sleva .scena-zatemnenie,.dispetcherskaya.tekst-sleva .scena-zatemnenie{background:linear-gradient(to right, rgba(8,9,14,.86) 0%, rgba(8,9,14,.66) 24%, rgba(8,9,14,0) 42%)}
+.priyomnaya.tekst-sprava .scena-zatemnenie,.kabinet.tekst-sprava .scena-zatemnenie,.dispetcherskaya.tekst-sprava .scena-zatemnenie{background:linear-gradient(to left, rgba(8,9,14,.86) 0%, rgba(8,9,14,.66) 24%, rgba(8,9,14,0) 42%)}
+@media (max-width:767px){
+  .ofer .abzac{font-size:15px;margin-bottom:14px}
+  .ofer .plan{font-size:12px;padding:6px 12px}
+}
+
+/* Следующий экран — заглушка, чтобы было куда прокручивать */
+.dalshe{min-height:100vh;padding:96px 24px;background:#0b0c10}
+.dalshe div{max-width:760px;margin:0 auto}
+.dalshe h2{font-size:clamp(26px,3vw,40px);margin:0 0 .5em;color:#fff}
+.dalshe p{font-size:18px;line-height:1.55;color:#b9b9c6;margin:0 0 1em}
+
+/* Панель сравнения (P) */
+.panel{position:fixed;top:76px;right:16px;z-index:50;width:344px;max-height:calc(100vh - 96px);overflow:auto;padding:14px;border-radius:12px;
+  background:rgba(14,15,22,.94);color:#e7e7ee;font-size:13px;line-height:1.4;box-shadow:0 8px 40px rgba(0,0,0,.5)}
+.panel[hidden]{display:none}
+.panel button{font:inherit;color:#fff;background:#2a2b38;border:1px solid #3b3c4c;border-radius:7px;padding:6px 10px;cursor:pointer;min-height:32px}
+.panel button.on{background:#5B5BD6;border-color:#5B5BD6}
+.panel label{display:flex;align-items:center;gap:8px;margin:6px 0}
+.panel input[type=range]{flex:1;min-width:0}
+.p-ryad{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0}
+.p-zag{margin:12px 0 4px;color:#a9a9ff;font-weight:600}
+.p-opis{color:#b9b9c6;margin:4px 0 6px}
+.panel pre{margin:6px 0;white-space:pre-wrap;font:12px/1.45 "JetBrains Mono",ui-monospace,monospace;color:#cfd0dc;background:#0c0d13;border-radius:7px;padding:8px}
+.p-klav{margin-top:8px;color:#8b8c9c;font-size:12px}
+.p-pod{margin:-2px 0 8px;color:#8b8c9c;font-size:12px;line-height:1.35}
+.panel select{font:inherit;color:#fff;background:#2a2b38;border:1px solid #3b3c4c;border-radius:7px;padding:4px 6px;min-height:30px}
+.panel label[title],.panel .p-ryad[title]{cursor:help}
+.panel label span{white-space:nowrap}
