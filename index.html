@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/scena.css?m=0711a">
 <link rel="stylesheet" href="css/scena-v2.css?m=0711c">
 <link rel="stylesheet" href="css/kejsy-v2.css?m=0711f">
+<link rel="stylesheet" href="css/bloki-v2.css?m=0711c">
 </head>
 <body>
 
@@ -20,20 +21,20 @@
         <span>syntax</span>
       </a>
   <nav class="menyu" aria-label="Разделы">
-    <a href="#dalshe">Услуги</a>
+    <a href="#uslugi">Услуги</a>
     <a href="#kejsy">Кейсы</a>
-    <a href="https://syntax.help/kak-rabotaet">Как работаем</a>
-    <a href="#dalshe">Контакты</a>
+    <a href="#kak">Как работаем</a>
+    <a href="#forma">Контакты</a>
     <a class="knopka" href="#" data-usluga="audit">Обсудить задачу</a>
     <button type="button" id="nav-burger" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
     </button>
   </nav>
   <div id="nav-menu" hidden>
-    <a href="#dalshe">Услуги</a>
+    <a href="#uslugi">Услуги</a>
     <a href="#kejsy">Кейсы</a>
-    <a href="https://syntax.help/kak-rabotaet">Как работаем</a>
-    <a href="#dalshe">Контакты</a>
+    <a href="#kak">Как работаем</a>
+    <a href="#forma">Контакты</a>
   </div>
 </header>
 
@@ -180,13 +181,122 @@
   </div>
 </section>
 
-<section class="v2-dalshe" id="dalshe">
-  <div>
-    <h2>Дальше — остальные блоки после сцен</h2>
-    <ul><li>Услуги — шесть карточек</li><li>Как работаем</li><li>Команда и доверие</li><li>Основная форма</li></ul>
-    <p>Следующий шаг сборки, по документу структуры.</p>
+<section class="b2" id="uslugi" aria-labelledby="uslugi-z">
+  <div class="b2-in">
+    <p class="k2-metka">Услуги</p>
+    <h2 id="uslugi-z">Что делаем</h2>
+    <p class="k2-pod">От отдельной задачи до системы целиком. Не знаете, с чего начать, — начните с аудита.</p>
+    <div class="b2-uslugi">
+      <article class="b2-usluga">
+        <h3>Сайты и приложения</h3>
+        <p>Сайт, который продаёт и работает с CRM и онлайн-оплатой.</p>
+        <ul class="b2-ssylki"><li><a href="kejs-trip-rent.html">Кейс Trip Rent</a></li></ul>
+        <button type="button" class="b2-obsudit" data-usluga="sayt">Обсудить</button>
+      </article>
+      <article class="b2-usluga">
+        <h3>CRM под процесс</h3>
+        <p>Воронка, задачи и клиенты — под ваш процесс.</p>
+        <ul class="b2-ssylki"><li><a href="https://syntax.help/crm-s-ii-agentami">CRM с ИИ-агентами</a></li><li><a href="kejs-velomore.html">Кейс ВелоМоре</a></li></ul>
+        <button type="button" class="b2-obsudit" data-usluga="crm">Обсудить</button>
+      </article>
+      <article class="b2-usluga">
+        <h3>ИИ-агенты</h3>
+        <p>Секретарь, поиск клиентов, контроль сделок, отзывы.</p>
+        <ul class="b2-ssylki"><li><a href="https://syntax.help/secretar">ИИ-секретарь</a></li><li><a href="https://syntax.help/lidogenerator">ИИ-лидогенератор</a></li><li><a href="https://syntax.help/kontroler">ИИ-контроллер</a></li><li><a href="https://syntax.help/otzovnik">Мониторинг отзывов</a></li></ul>
+        <button type="button" class="b2-obsudit" data-usluga="agent">Обсудить</button>
+      </article>
+      <article class="b2-usluga">
+        <h3>Аналитика и отчёты</h3>
+        <p>Сводка из CRM и маркетплейсов.</p>
+        <ul class="b2-ssylki"><li><a href="https://syntax.help/analitik">ИИ-аналитик</a></li></ul>
+        <button type="button" class="b2-obsudit" data-usluga="analitika">Обсудить</button>
+      </article>
+      <article class="b2-usluga">
+        <h3>Автоматизация и интеграции</h3>
+        <p>Связываем amoCRM, Битрикс24, RentProg, мессенджеры, таблицы и оплату.</p>
+        <ul class="b2-ssylki"><li><a href="https://syntax.help/kak-rabotaet">Интеграции, безопасность, сроки</a></li></ul>
+        <button type="button" class="b2-obsudit" data-usluga="avtomat">Обсудить</button>
+      </article>
+      <article class="b2-usluga audit">
+        <h3>Бесплатный аудит</h3>
+        <p>За один созвон: где теряются деньги и что закрыть первым.</p>
+        <button type="button" class="b2-obsudit" data-usluga="audit">Записаться на аудит</button>
+      </article>
+    </div>
+    <p class="b2-tarify">Цены — на странице <a href="https://syntax.help/tarify">«Тарифы»</a>.</p>
   </div>
 </section>
+
+<section class="b2" id="kak" aria-labelledby="kak-z">
+  <div class="b2-in">
+    <p class="k2-metka">Как работаем</p>
+    <h2 id="kak-z">Что будет после заявки</h2>
+    <p class="k2-pod">Четыре шага. Для сайтов и приложений срок называем после аудита.</p>
+    <ol class="b2-shagi">
+      <li><b>Бесплатный аудит</b>За один созвон: где теряются деньги и что закрыть первым.</li>
+      <li><b>Сборка CRM</b>Под ваш процесс, а не наоборот.</li>
+      <li><b>Агенты и связки</b>ИИ-агенты и связки с вашими программами.</li>
+      <li><b>Запуск</b>Система работает на ваших данных.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="b2" id="doverie" aria-labelledby="doverie-z">
+  <div class="b2-in">
+    <p class="k2-metka">Доверие</p>
+    <h2 id="doverie-z">Кто стоит за сайтом</h2>
+    <div class="b2-doverie">
+      <div><b>ООО «ИИ2Б»</b>ИНН 3900051821<br>ОГРН 1263900002486<br>Калининград</div>
+      <div><b>Персональные данные</b>152-ФЗ · данные в РФ.<br><a href="https://syntax.help/privacy">Политика конфиденциальности</a></div>
+      <div><b>Клиенты с названиями</b>ВелоМоре и Trip Rent — <a href="#kejsy">смотреть кейсы</a>.</div>
+      <div class="b2-komanda">Команда — фото и имена <span class="soglasovat">ждём фото и согласие</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="b2 b2-forma-blok" id="forma" aria-labelledby="forma-z">
+  <div class="b2-in b2-forma-setka">
+    <div>
+      <p class="k2-metka">Заявка</p>
+      <h2 id="forma-z">Покажем, где вы теряете деньги</h2>
+      <p class="k2-pod">Оставьте контакт — договоримся о созвоне и разберём вашу задачу.</p>
+      <p class="b2-mel">Первый разбор — бесплатно.</p>
+    </div>
+    <div>
+      <form class="b2-forma" id="b2-forma" novalidate>
+        <label>Ваше имя<input name="name" required autocomplete="name"></label>
+        <label>Telegram или телефон<input name="contact" required autocomplete="tel"></label>
+        <label>Сфера бизнеса<input name="sfera" autocomplete="organization"></label>
+        <label>Что нужно<select name="usluga">
+          <option value="audit">Не знаю, с чего начать — нужен аудит</option>
+          <option value="agent">ИИ-агент: заявки и ответы клиентам</option>
+          <option value="crm">CRM под процесс</option>
+          <option value="avtomat">Автоматизация и интеграции</option>
+          <option value="analitika">Аналитика и отчёты</option>
+          <option value="sayt">Сайт или приложение</option>
+        </select></label>
+        <button type="submit" class="v2-knopka">Обсудить задачу →</button>
+        <p class="m">152-ФЗ · данные не передаём третьим лицам · <a href="https://t.me/syntax_ai_agency" target="_blank" rel="noopener">или сразу напишите в Telegram →</a></p>
+      </form>
+      <div class="b2-spasibo" id="b2-spasibo" hidden>
+        <p class="z">Спасибо! Заявка отправлена</p>
+        <p class="m">Это прототип: заявка никуда не ушла.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="b2-podval">
+  <div class="b2-in">
+    <span>SYNTAX · ООО «ИИ2Б»</span>
+    <nav aria-label="Документы и связь">
+      <a href="https://syntax.help/privacy">Политика конфиденциальности</a>
+      <a href="https://syntax.help/oferta">Оферта</a>
+      <a href="https://syntax.help/tarify">Тарифы</a>
+      <a href="https://t.me/syntax_ai_agency" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+  </div>
+</footer>
 
 <div class="v2-forma-fon" hidden>
   <form class="v2-forma" role="dialog" aria-modal="true" aria-labelledby="v2-forma-z" novalidate>
@@ -252,5 +362,6 @@
 <script src="js/scena/scena.js?m=0711a"></script>
 <script src="js/scena/zapusk-v2.js?m=0711d"></script>
 <script src="js/scena/v2-dop.js?m=0711a"></script>
+<script src="js/scena/bloki-v2.js?m=0711a"></script>
 </body>
 </html>

@@ -1,0 +1,80 @@
+/* Блоки после сцен v2 (07.11.2026): услуги, как работаем, доверие, основная форма, подвал.
+   Тексты — по документу структуры 06.11 (блоки 7, 9, 10, 11). Гамма — как у кейсов: тёмный фон, фиолетовый SYNTAX. */
+.b2{background:#0b0c10;color:#ececf2;padding:96px 24px;border-top:1px solid #1e1f2b}
+.b2-in{max-width:1180px;margin:0 auto}
+.b2 h2{margin:0 0 12px;font-size:clamp(30px,3.4vw,52px);line-height:1.08;letter-spacing:-.02em;color:#fff}
+
+/* Услуги */
+.b2-uslugi{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.b2-usluga{display:flex;flex-direction:column;background:#14151d;border:1px solid #262736;border-radius:18px;padding:26px 26px 24px;transition:border-color .2s,transform .2s}
+.b2-usluga:hover{border-color:#5B5BD6;transform:translateY(-2px)}
+.b2-usluga h3{margin:0 0 10px;color:#fff;font-size:22px;line-height:1.2}
+.b2-usluga p{margin:0 0 16px;color:#c4c4d2;font-size:16px;line-height:1.5}
+.b2-usluga .b2-ssylki{margin:0 0 18px;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+.b2-usluga .b2-ssylki a{color:#b4b4ff;text-decoration:none;border-bottom:1px solid rgba(180,180,255,.35)}
+.b2-usluga .b2-ssylki a:hover{color:#fff}
+.b2-usluga .b2-obsudit{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid #5B5BD6;border-radius:10px;
+  background:transparent;color:#fff;font:600 15px/1 Inter,system-ui,sans-serif;cursor:pointer;transition:background .2s}
+.b2-usluga .b2-obsudit:hover{background:#5B5BD6}
+.b2-usluga.audit{background:linear-gradient(160deg,#25265a,#14151d 70%);border-color:#3b3c8a}
+.b2-usluga.audit .b2-obsudit{background:#5B5BD6}
+.b2-tarify{margin:22px 0 0;color:#9a9ab0;font-size:15px}
+.b2-tarify a{color:#b4b4ff}
+
+/* Как работаем */
+.b2-shagi{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:shag}
+.b2-shagi li{position:relative;background:#14151d;border:1px solid #262736;border-radius:16px;padding:58px 22px 22px;color:#d6d6e2;font-size:16px;line-height:1.5;counter-increment:shag}
+.b2-shagi li::before{content:counter(shag);position:absolute;top:18px;left:22px;width:30px;height:30px;border-radius:50%;background:#5B5BD6;color:#fff;
+  font:700 15px/30px Inter,system-ui,sans-serif;text-align:center}
+.b2-shagi li b{display:block;margin-bottom:6px;color:#fff;font-size:19px;line-height:1.25}
+
+/* Доверие */
+.b2-doverie{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.b2-doverie > div{background:#14151d;border:1px solid #262736;border-radius:16px;padding:22px;color:#d6d6e2;font-size:16px;line-height:1.5}
+.b2-doverie b{display:block;margin-bottom:6px;color:#fff;font-size:18px}
+.b2-doverie a{color:#b4b4ff}
+.b2-doverie .b2-komanda{grid-column:1/-1;border-style:dashed;border-color:#3b3c8a;background:transparent;text-align:center;color:#b4b4ff}
+
+/* Основная форма */
+.b2-forma-blok{background:radial-gradient(ellipse 70% 80% at 80% 0%,rgba(91,91,214,.25),rgba(11,12,16,0) 70%),#0b0c10}
+.b2-forma-setka{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.b2-forma-setka .k2-pod{margin-bottom:18px}
+.b2-forma-setka > div,.b2-forma label{min-width:0}
+.b2-forma select{width:100%;min-width:0;max-width:100%;text-overflow:ellipsis}
+.b2-mel{color:#b4b4ff;font-size:15px}
+.b2-forma{display:grid;gap:14px;background:#14151d;border:1px solid #262736;border-radius:20px;padding:28px}
+.b2-forma label{display:grid;gap:6px;color:#c4c4d2;font-size:14px}
+.b2-forma input,.b2-forma select{min-height:48px;padding:0 14px;border:1px solid #2c2d44;border-radius:10px;background:#0b0c10;color:#fff;font:16px Inter,system-ui,sans-serif}
+.b2-forma input:focus,.b2-forma select:focus{outline:2px solid #5B5BD6;outline-offset:1px;border-color:#5B5BD6}
+.b2-forma input[aria-invalid=true]{border-color:#e5484d}
+.b2-forma .v2-knopka{justify-content:center;min-height:52px}
+.b2-forma .m{margin:0;color:#9a9ab0;font-size:13px;line-height:1.5}
+.b2-forma .m a{color:#b4b4ff}
+.b2-forma[hidden],.b2-spasibo[hidden]{display:none}  /* display:grid иначе перебивает hidden */
+.b2-spasibo{background:#14151d;border:1px solid #3b3c8a;border-radius:20px;padding:36px 28px;text-align:center}
+.b2-spasibo .z{margin:0 0 8px;color:#fff;font-size:24px;font-weight:700}
+.b2-spasibo .m{margin:0;color:#9a9ab0}
+
+/* Подвал */
+.b2-podval{background:#08090c;color:#9a9ab0;padding:36px 24px calc(36px + env(safe-area-inset-bottom));border-top:1px solid #1e1f2b;font-size:14px}
+.b2-podval .b2-in{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
+.b2-podval nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+.b2-podval a{color:#c4c4d2;text-decoration:none}
+.b2-podval a:hover{color:#fff}
+
+/* Точки-переходы сцен прячутся, когда сцены кончились */
+.v2-tochki{transition:opacity .3s}
+.v2-tochki.skryty{opacity:0;pointer-events:none}
+
+@media (max-width:1024px){
+  .b2-uslugi{grid-template-columns:1fr 1fr}
+  .b2-shagi{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .b2{padding:64px 16px}
+  .b2-uslugi,.b2-shagi,.b2-doverie,.b2-forma-setka{grid-template-columns:1fr}
+  .b2-forma-setka{gap:24px}
+  .b2-forma{padding:20px}
+  .b2-usluga .b2-obsudit{width:100%;justify-content:center}
+  .b2-podval{padding-left:16px;padding-right:16px}
+}
