@@ -1,0 +1,74 @@
+/* Кейсы v2: блок на главной после сцен и страницы кейсов. Тёмная гамма сцен, фиолетовый SYNTAX. 07.11.2026.
+   .soglasovat — метка прототипа: данные ждут подтверждения. Перед выкладкой убрать вместе с тем, что не подтвердили. */
+.k2{background:#0b0c10;color:#ececf2;padding:96px 24px}
+.k2-in{max-width:1180px;margin:0 auto}
+.k2-metka{margin:0 0 10px;color:#b4b4ff;font:600 13px/1.3 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase}
+.k2 h2{margin:0 0 12px;font-size:clamp(30px,3.4vw,52px);line-height:1.08;letter-spacing:-.02em;color:#fff}
+.k2-pod{margin:0 0 36px;max-width:680px;color:#b9b9c6;font-size:18px;line-height:1.5}
+.k2-karty{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.k2-karta{display:flex;flex-direction:column;background:#14151d;border:1px solid #262736;border-radius:20px;overflow:hidden;transition:border-color .2s,transform .2s}
+.k2-karta:hover{border-color:#5B5BD6;transform:translateY(-2px)}
+.k2-kartinka{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#1b1c2a,#232447);display:flex;align-items:center;justify-content:center}
+.k2-telo{display:flex;flex-direction:column;flex:1;padding:24px 26px 26px}
+.k2-napr{margin:0 0 10px;color:#b4b4ff;font-size:14px}
+.k2-karta h3{margin:0 0 10px;color:#fff;font-size:clamp(22px,1.9vw,30px);line-height:1.15}
+.k2-karta p{margin:0 0 18px;color:#c4c4d2;font-size:16px;line-height:1.5}
+.k2-cifra{margin:auto 0 18px;padding-top:6px;font-size:15px;color:#c4c4d2}
+.k2-cifra b{display:block;color:#fff;font-size:30px;line-height:1.1}
+.k2-ssylka{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;min-height:44px;color:#fff;font-weight:600;text-decoration:none;border-bottom:2px solid #5B5BD6}
+.k2-ssylka:hover{color:#b4b4ff}
+.k2-cifra+.k2-ssylka{margin-top:0}
+
+/* Заглушка скриншота: рамка устройства с подписью, что сюда встанет */
+.k2-ramka{width:86%;height:78%;border:2px dashed rgba(180,180,255,.45);border-radius:14px;display:flex;align-items:center;justify-content:center;
+  padding:16px;text-align:center;color:#b4b4ff;font-size:14px;line-height:1.4}
+.k2-ramka.tel{position:absolute;top:8%;bottom:8%;left:50%;transform:translateX(-50%);width:auto;height:auto;aspect-ratio:9/18}
+
+/* Снимок экрана на месте заглушки (07.11): широкий — на всю рамку от верха, телефонный — по центру в рамке телефона */
+.k2-kartinka:has(.k2-snimok){background:#0b0c10;overflow:hidden}
+.k2-karta .k2-kartinka:has(.k2-snimok){border-bottom:1px solid #262736}
+.k2-snimok{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.k2-snimok.tel{inset:auto;top:6%;left:50%;transform:translateX(-50%);width:auto;height:88%;border:3px solid #2c2d44;border-radius:18px}
+
+.soglasovat{display:inline-block;margin-left:6px;padding:1px 8px;border:1px dashed #f0b866;border-radius:6px;color:#f0b866;font:600 11px/1.6 Inter,system-ui,sans-serif;
+  letter-spacing:.02em;vertical-align:middle;white-space:nowrap}
+
+/* Страница кейса */
+.k2-stranica{background:#0b0c10;color:#ececf2;min-height:100vh}
+.k2-geroj{padding:140px 24px 64px;background:radial-gradient(ellipse 70% 60% at 30% 0%,rgba(91,91,214,.28),rgba(11,12,16,0) 70%)}
+.k2-geroj h1{margin:0 0 16px;max-width:900px;font-size:clamp(34px,4.4vw,64px);line-height:1.05;letter-spacing:-.025em;color:#fff}
+.k2-geroj .k2-pod{font-size:20px;margin-bottom:28px}
+.k2-fakty{display:flex;flex-wrap:wrap;gap:10px 28px;margin:0;padding:0;list-style:none;color:#c4c4d2;font-size:15px}
+.k2-fakty b{color:#fff}
+.k2-razdel{padding:56px 24px;border-top:1px solid #1e1f2b}
+.k2-razdel h2{font-size:clamp(26px,2.6vw,38px)}
+.k2-dve{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.k2-spisok{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.k2-spisok li{background:#14151d;border:1px solid #262736;border-radius:14px;padding:18px 20px;font-size:16px;line-height:1.45;color:#d6d6e2}
+.k2-spisok li b{display:block;margin-bottom:4px;color:#fff;font-size:17px}
+.k2-rezultaty{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.k2-rezultaty li{background:linear-gradient(160deg,#1a1b2b,#14151d);border:1px solid #2c2d44;border-radius:14px;padding:20px;font-size:16px;line-height:1.45;color:#d6d6e2}
+.k2-rezultaty li b{display:block;margin-bottom:6px;color:#fff;font-size:20px;line-height:1.2}
+.k2-otzyv{margin:0;background:#14151d;border-left:4px solid #5B5BD6;border-radius:0 16px 16px 0;padding:28px 32px}
+.k2-otzyv p{margin:0 0 14px;font-size:clamp(17px,1.3vw,20px);line-height:1.6;color:#ececf2}
+.k2-otzyv footer{margin-top:18px;color:#b4b4ff;font-size:15px}
+.k2-skriny{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.k2-skriny figure{margin:0}
+.k2-skriny .k2-kartinka{border-radius:14px;border:1px solid #262736}
+/* Раскладка снимков «широкий сверху, под ним широкий и телефон одной высоты»: 2fr + 1fr, у телефона рамка 8:9 = половина от 16:9 */
+.k2-skriny.kompozit{grid-template-columns:2fr 1fr;gap:24px 16px}
+.k2-skriny.kompozit .shiroko{grid-column:1/-1}
+.k2-skriny.kompozit .k2-kartinka:has(.tel){aspect-ratio:8/9}
+.k2-skriny figcaption{margin-top:8px;color:#9a9ab0;font-size:14px}
+.k2-prizyv{padding:64px 24px 96px;text-align:center}
+.k2-prizyv h2{margin-bottom:18px}
+.k2-nazad{display:inline-block;margin-bottom:18px;color:#b4b4ff;text-decoration:none;font-size:15px}
+
+@media (max-width:860px){
+  .k2{padding:64px 16px}
+  .k2-karty,.k2-dve,.k2-spisok,.k2-rezultaty,.k2-skriny,.k2-skriny.kompozit{grid-template-columns:1fr}
+  .k2-geroj{padding:112px 16px 44px}
+  .k2-razdel{padding:40px 16px}
+  .k2-otzyv{padding:22px 20px}
+  .k2-prizyv .v2-knopka{width:100%;justify-content:center}
+}

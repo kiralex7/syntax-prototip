@@ -3,6 +3,7 @@
  * Клавиши: 1/2/3 — вариант, R — сначала, P — панель, T — текст.
  * 06.11: второй экран — фасад с оффером; рост начинается через 5 с после появления экрана; разгон роста на панели;
  * подписи панели словами и подсказки при наведении; в итоге показа — докуда дошёл рост.
+ * 07.11, v2: копия zapusk.js для prototip-v2.html; на экране в вертикальном положении — своя вертикальная пара сцены (mobil), если есть.
  * 06.11, ночь: кисть, ореол и прокрутка — через 0,5 с после того, как экран встал целиком (компьютер); шестой экран — бюро.
  * 06.11, вечер: третий, четвёртый и пятый экраны — приёмная, кабинет руководителя, диспетчерская; положение текста на панели — у каждого свой выбор.
  */
@@ -14,6 +15,21 @@
   var EKRANY = {
     ceh: {
       imya: 'цех',
+      // Вертикальная пара (телефон), точки картинки 941×1672. 07.11, пары из Загрузок 07.11 00:26–00:55.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/ceh/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 520, y: 950, r: 260, ot: 0.00, do: 0.32 },   // проход → робот-тележка
+          { x: 140, y: 1000, r: 300, ot: 0.06, do: 0.38 },   // верстак слева → рабочее место с экраном
+          { x: 150, y: 470, r: 260, ot: 0.12, do: 0.44 },   // окна слева → экраны
+          { x: 520, y: 620, r: 230, ot: 0.18, do: 0.50 },   // глубина цеха, торец
+          { x: 830, y: 700, r: 260, ot: 0.22, do: 0.54 },   // станки справа → ячейки
+          { x: 470, y: 180, r: 520, ot: 0.30, do: 0.64 },   // кровля и свет
+          { x: 600, y: 1300, r: 420, ot: 0.38, do: 0.74 },   // пол спереди
+          { x: 200, y: 1450, r: 330, ot: 0.44, do: 0.80 },   // левый низ
+          { x: 470, y: 1620, r: 520, ot: 0.55, do: 0.88 }   // низ
+        ]
+      },
       fokus: [0.62, 0.55],              // точка привязки кадра: торец и проход не уходят за край на телефоне
       posle: 'img/sceny/ceh/posle.v1.webp',
       pyatna: [
@@ -39,6 +55,24 @@
     },
     fasad: {
       imya: 'фасад',
+      // Вертикальная пара для экранов в вертикальном положении (телефон). Координаты — точки картинки 941×1672. 07.11.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/fasad/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 470, y: 750, r: 240, ot: 0.00, do: 0.35 },   // глухие ворота → стеклянный вход
+          { x: 470, y: 290, r: 200, ot: 0.05, do: 0.40 },   // фронтон → знак S и надпись SYNTAX.HELP
+          { x: 470, y: 500, r: 190, ot: 0.12, do: 0.45 },   // арочное окно над входом
+          { x: 80, y: 620, r: 210, ot: 0.18, do: 0.50 },    // окна слева
+          { x: 860, y: 640, r: 210, ot: 0.18, do: 0.50 },   // окна и будка справа
+          { x: 120, y: 900, r: 220, ot: 0.24, do: 0.56 },   // поддоны → газон и фонари
+          { x: 840, y: 900, r: 220, ot: 0.24, do: 0.56 },   // шлагбаум → кусты и фонарь
+          { x: 470, y: 1150, r: 460, ot: 0.30, do: 0.70 },  // мостовая у входа
+          { x: 470, y: 1500, r: 520, ot: 0.40, do: 0.80 },  // мостовая внизу
+          { x: 470, y: 90, r: 520, ot: 0.50, do: 0.85 },    // небо
+          { x: 90, y: 90, r: 260, ot: 0.55, do: 0.88 },     // дерево
+          { x: 850, y: 250, r: 160, ot: 0.55, do: 0.88 }    // труба и крыша справа
+        ]
+      },
       fokus: [0.52, 0.6],               // вход и знак S в кадре на телефоне
       posle: 'img/sceny/fasad/posle.v1.webp',
       pyatna: [
@@ -71,6 +105,21 @@
     },
     priyomnaya: {
       imya: 'приёмная',
+      // Вертикальная пара (телефон), точки картинки 941×1672. 07.11, пары из Загрузок 07.11 00:26–00:55.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/priyomnaya/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 470, y: 860, r: 330, ot: 0.00, do: 0.32 },   // стойка «ЗАЯВКИ» → стойка SYNTAX.HELP
+          { x: 470, y: 520, r: 230, ot: 0.06, do: 0.38 },   // вывеска → экран «Чем помочь?»
+          { x: 480, y: 690, r: 150, ot: 0.12, do: 0.42 },   // стеллаж за стойкой → робот
+          { x: 90, y: 700, r: 220, ot: 0.20, do: 0.50 },   // шкафы слева
+          { x: 790, y: 420, r: 260, ot: 0.26, do: 0.56 },   // окно-арка справа
+          { x: 150, y: 330, r: 240, ot: 0.30, do: 0.60 },   // доска и часы слева
+          { x: 470, y: 120, r: 420, ot: 0.36, do: 0.70 },   // лампы и потолок
+          { x: 470, y: 1200, r: 480, ot: 0.44, do: 0.80 },   // пол у стойки
+          { x: 470, y: 1550, r: 520, ot: 0.55, do: 0.88 }   // пол внизу
+        ]
+      },
       fokus: [0.65, 0.5],               // на телефоне в кадре робот, надпись SYNTAX.HELP и круг «98%»
       posle: 'img/sceny/priyomnaya/posle.v1.webp',
       pyatna: [
@@ -105,6 +154,22 @@
     },
     kabinet: {
       imya: 'кабинет',
+      // Вертикальная пара (телефон), точки картинки 941×1672. 07.11, пары из Загрузок 07.11 00:26–00:55.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/kabinet/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 650, y: 480, r: 280, ot: 0.00, do: 0.32 },   // картины и шкаф → экран «Управление производством»
+          { x: 820, y: 770, r: 200, ot: 0.06, do: 0.38 },   // угол справа → робот
+          { x: 470, y: 1050, r: 330, ot: 0.12, do: 0.44 },   // стол с бумагами → светящийся стол
+          { x: 380, y: 860, r: 200, ot: 0.18, do: 0.48 },   // руководитель, телефон → ноутбук
+          { x: 520, y: 170, r: 300, ot: 0.24, do: 0.54 },   // лампа → световое кольцо
+          { x: 110, y: 500, r: 260, ot: 0.30, do: 0.60 },   // окно слева
+          { x: 200, y: 1350, r: 300, ot: 0.36, do: 0.70 },   // кресло спереди
+          { x: 600, y: 1450, r: 420, ot: 0.44, do: 0.80 },   // пол
+          { x: 470, y: 60, r: 480, ot: 0.50, do: 0.85 },   // потолок
+          { x: 470, y: 1620, r: 520, ot: 0.56, do: 0.88 }   // низ
+        ]
+      },
       fokus: [0.52, 0.5],               // на телефоне в кадре робот, левая колонка панели и голограмма завода
       posle: 'img/sceny/kabinet/posle.v1.webp',
       pyatna: [
@@ -141,6 +206,22 @@
     },
     dispetcherskaya: {
       imya: 'диспетчерская',
+      // Вертикальная пара (телефон), точки картинки 941×1672. 07.11, пары из Загрузок 07.11 00:26–00:55.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/dispetcherskaya/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 590, y: 490, r: 300, ot: 0.00, do: 0.32 },   // доска «План производства» → экран
+          { x: 600, y: 290, r: 200, ot: 0.05, do: 0.36 },   // вывеска «Диспетчерская» → «Процессы»
+          { x: 300, y: 1050, r: 330, ot: 0.10, do: 0.42 },   // стол с бумагами → стол с планшетом
+          { x: 560, y: 760, r: 260, ot: 0.16, do: 0.48 },   // диспетчеры и старые мониторы
+          { x: 840, y: 760, r: 200, ot: 0.22, do: 0.52 },   // угол справа → робот
+          { x: 110, y: 420, r: 260, ot: 0.28, do: 0.58 },   // окно слева
+          { x: 350, y: 1400, r: 380, ot: 0.34, do: 0.66 },   // стол спереди
+          { x: 780, y: 1300, r: 330, ot: 0.40, do: 0.74 },   // пол справа
+          { x: 520, y: 110, r: 460, ot: 0.46, do: 0.80 },   // лампы и потолок
+          { x: 470, y: 1600, r: 520, ot: 0.55, do: 0.88 }   // низ
+        ]
+      },
       fokus: [0.66, 0.5],               // на телефоне в кадре середина экрана процессов (завод, «риск задержки», «готово») и оператор
       posle: 'img/sceny/dispetcherskaya/posle.v1.webp',
       pyatna: [
@@ -176,6 +257,21 @@
     },
     byuro: {
       imya: 'бюро',
+      // Вертикальная пара (телефон), точки картинки 941×1672. 07.11, пары из Загрузок 07.11 00:26–00:55.
+      mobil: {
+        W: 941, H: 1672, posle: 'img/sceny/byuro/mobil-posle.v1.webp',
+        pyatna: [
+          { x: 630, y: 380, r: 230, ot: 0.00, do: 0.30 },   // вывеска «Конструкторское бюро» → «Дизайн и разработка»
+          { x: 560, y: 640, r: 280, ot: 0.06, do: 0.38 },   // кульман → большой экран
+          { x: 260, y: 1020, r: 300, ot: 0.12, do: 0.44 },   // инженер за столом → разработчик с мониторами
+          { x: 380, y: 760, r: 200, ot: 0.18, do: 0.48 },   // у кульмана
+          { x: 790, y: 900, r: 250, ot: 0.24, do: 0.54 },   // столы справа
+          { x: 470, y: 120, r: 420, ot: 0.30, do: 0.62 },   // лампа → световое кольцо
+          { x: 110, y: 500, r: 240, ot: 0.36, do: 0.66 },   // окна слева
+          { x: 470, y: 1300, r: 420, ot: 0.42, do: 0.76 },   // стол спереди
+          { x: 470, y: 1600, r: 520, ot: 0.55, do: 0.88 }   // низ
+        ]
+      },
       fokus: [0.57, 0.5],               // на телефоне в кадре середина экрана «Дизайн и разработка» и разработчик в центре
       posle: 'img/sceny/byuro/posle.v1.webp',
       pyatna: [
@@ -220,11 +316,15 @@
     zagotovki: { medlenno: 60, sredne: 35, bystro: 18 },
     kist: 90,
     otkrytie: 0.5,                    // кисть, ореол и прокрутка — через столько секунд после того, как экран встал целиком (компьютер)
+    telefon: { pauza: 0.12, konec: 0.88 }, // телефон: доля залипания без смены в начале и с какой доли смена закончена (07.11)
     pokazan: 0.6                      // экран считается показанным, когда на виду 60% его окна
   };
 
   var par = new URLSearchParams(location.search);
   var mysh = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  // То же условие, что у <source media> в разметке: вертикальный экран — вертикальная пара. Повернули — перезагрузить страницу.
+  var portretMq = matchMedia('(orientation: portrait)'), portret = portretMq.matches;
+  if (portretMq.addEventListener) portretMq.addEventListener('change', function () { location.reload(); });
   var menshe = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var tek = null;                   // текущий вариант
 
@@ -233,9 +333,12 @@
   document.querySelectorAll('.scena-sekciya').forEach(function (sek, nomer) {
     var opis = EKRANY[sek.dataset.ekran];
     var okno = sek.querySelector('.scena-okno');
+    var mob = portret && opis.mobil;
     var st = {
       nomer: nomer, imya: opis.imya, opis: opis, sek: sek, okno: okno,
-      sc: new window.Scena(okno, { W: W, H: H, fokus: opis.fokus, pyatna: mysh ? opis.pyatna : opis.pyatnaTelefon }),
+      sc: new window.Scena(okno, mob ? { W: mob.W, H: mob.H, fokus: [0.5, 0.5], pyatna: mob.pyatna }
+        : { W: W, H: H, fokus: opis.fokus, pyatna: mysh ? opis.pyatna : opis.pyatnaTelefon }),
+      posleSrc: mob ? mob.posle : opis.posle, vertik: !!mob,
       vr: { id: 0 }, sch: null, posled: null, tajmer: 0, kadrovProshlo: 0, fps: 0,
       vidna: nomer === 0, dolya: nomer === 0 ? 1 : 0, pokazan: false,
       otkryt: false, kistGotova: false, tajmerOtkr: 0, s0: null, sRaw: 0
@@ -315,6 +418,8 @@
     if (podskazka) podskazka.classList.toggle('skryta', s > 0.03);
     // Компьютер: до конца паузы после полного открытия прокрутка не открывает ничего, потом считает от места, где пауза кончилась.
     if (mysh) s = st.s0 === null ? 0 : Math.max(0, Math.min(1, (s - st.s0) / (1 - st.s0)));
+    // Телефон (07.11): сцена залипает; сначала немного прокрутки без смены, потом смена, в конце снова без смены — и дальше.
+    else s = Math.max(0, Math.min(1, (s - KONF.telefon.pauza) / (KONF.telefon.konec - KONF.telefon.pauza)));
     st.sc.setScroll(s);
     if (s >= 0.98 && st.sch) st.sch.konec = true;
   }
@@ -325,7 +430,7 @@
       var proxy = { s: 0 };
       gsap.to(proxy, {
         s: 1, ease: 'none',
-        scrollTrigger: { trigger: st.sek, start: mysh || st.nomer === 0 ? 'top top' : 'top 75%', end: mysh ? 'bottom bottom' : 'bottom 35%', scrub: 0.4 },
+        scrollTrigger: { trigger: st.sek, start: 'top top', end: 'bottom bottom', scrub: 0.4 },
         onUpdate: function () { naProkrutku(st, proxy.s); }
       });
     });
@@ -528,9 +633,7 @@
     }
     chasti.push('кисть и прокрутка — через ' + zap(KONF.otkrytie) + ' с после того, как экран встал целиком');
     chasti.push('откат назад: ' + ($('p-otkat').checked ? 'да' : 'нет'),
-      'текст: фасад ' + $('p-fasad-tekst').selectedOptions[0].textContent + ', приёмная ' + $('p-priyomnaya-tekst').selectedOptions[0].textContent +
-      ', кабинет ' + $('p-kabinet-tekst').selectedOptions[0].textContent +
-      ', диспетчерская ' + $('p-dispetcherskaya-tekst').selectedOptions[0].textContent,
+      'картинки: ' + (portret ? 'вертикальные, где есть' : 'широкие'),
       'экран ' + innerWidth + '×' + innerHeight);
     return chasti.join(' | ');
   }
@@ -582,7 +685,7 @@
   // «После» — после загрузки страницы: первой показывается «до», кисть включается, когда «после» готово.
   var gruzit = function () {
     sceny.forEach(function (st) {
-      st.sc.zagruzit(st.opis.posle).then(function () {
+      st.sc.zagruzit(st.posleSrc).then(function () {
         st.sek.classList.add('posle-gotovo');
         if (st.nomer === 0) document.body.classList.add('posle-gotovo');
       });

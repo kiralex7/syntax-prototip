@@ -2,52 +2,72 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Прототип: шесть экранов фабрики — было и стало</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Прототип v2: новая структура сайта SYNTAX</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="preload" as="image" href="img/sceny/ceh/do.v1.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/sceny/fasad/do.v1.webp" media="(orientation: landscape)" fetchpriority="high">
+<link rel="preload" as="image" href="img/sceny/fasad/mobil-do.v1.webp" media="(orientation: portrait)" fetchpriority="high">
 <link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/scena.css?m=0611f">
+<link rel="stylesheet" href="css/scena.css?m=0711a">
+<link rel="stylesheet" href="css/scena-v2.css?m=0711c">
+<link rel="stylesheet" href="css/kejsy-v2.css?m=0711f">
 </head>
 <body>
 
-<!-- Прототип первого экрана: сцена «было → стало». Локально, на сайт не выкладывается. 05.11.2026. -->
-<section class="scena-sekciya" data-ekran="ceh" aria-label="Цех: было и стало">
-  <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/ceh/do.v1.webp" width="1672" height="941" fetchpriority="high"
-         alt="Старый кирпичный цех: доска с бумагами, стол мастера с журналами, станки, стеллажи с ящиками">
-    <canvas class="scena-posle" aria-hidden="true"></canvas>
-    <div class="scena-zatemnenie" aria-hidden="true"></div>
-
-    <header class="scena-shapka">
-      <a class="logo" href="https://syntax.help/" aria-label="syntax">
+<header class="scena-shapka v2-shapka">
+  <a class="logo" href="https://syntax.help/" aria-label="syntax">
         <svg viewBox="0 0 76 52" fill="none" aria-hidden="true"><path d="M16 8 q-5 0 -5 6 l0 6 q0 4 -4 6 q4 2 4 6 l0 6 q0 6 5 6" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 8 q5 0 5 6 l0 6 q0 4 4 6 q-4 2 -4 6 l0 6 q0 6 -5 6" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><rect x="24" y="8" width="28" height="6" rx="1.6"/><rect x="24" y="12" width="6" height="15" rx="1.6"/><rect x="24" y="23" width="28" height="6" rx="1.6"/><rect x="46" y="27" width="6" height="15" rx="1.6"/><rect x="24" y="38" width="28" height="6" rx="1.6"/></g></svg>
         <span>syntax</span>
       </a>
-      <nav class="menyu" aria-label="Разделы">
-        <a href="https://syntax.help/#pains">Боли</a>
-        <a href="https://syntax.help/#crm">Система</a>
-        <a href="https://syntax.help/#cases">Кейсы</a>
-        <a class="knopka" href="https://syntax.help/#lead-form">Обсудить задачу</a>
-        <button type="button" id="nav-burger" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-        </button>
-      </nav>
-      <div id="nav-menu" hidden>
-        <a href="https://syntax.help/#pains">Боли</a>
-        <a href="https://syntax.help/#crm">Система</a>
-        <a href="https://syntax.help/#cases">Кейсы</a>
-        <a href="https://syntax.help/faq">Вопросы и ответы</a>
-      </div>
-    </header>
+  <nav class="menyu" aria-label="Разделы">
+    <a href="#dalshe">Услуги</a>
+    <a href="#kejsy">Кейсы</a>
+    <a href="https://syntax.help/kak-rabotaet">Как работаем</a>
+    <a href="#dalshe">Контакты</a>
+    <a class="knopka" href="#" data-usluga="audit">Обсудить задачу</a>
+    <button type="button" id="nav-burger" aria-label="Меню" aria-expanded="false" aria-controls="nav-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+    </button>
+  </nav>
+  <div id="nav-menu" hidden>
+    <a href="#dalshe">Услуги</a>
+    <a href="#kejsy">Кейсы</a>
+    <a href="https://syntax.help/kak-rabotaet">Как работаем</a>
+    <a href="#dalshe">Контакты</a>
+  </div>
+</header>
 
-    <div class="scena-tekst">
+<nav class="v2-tochki" aria-label="Сцены">
+  <a href="#scena-fasad" data-k="fasad"><span>Фасад</span><i></i></a>
+  <a href="#scena-priyomnaya" data-k="priyomnaya"><span>Приёмная</span><i></i></a>
+  <a href="#scena-dispetcherskaya" data-k="dispetcherskaya"><span>Диспетчерская</span><i></i></a>
+  <a href="#scena-ceh" data-k="ceh"><span>Цех</span><i></i></a>
+  <a href="#scena-kabinet" data-k="kabinet"><span>Кабинет руководителя</span><i></i></a>
+  <a href="#scena-byuro" data-k="byuro"><span>Конструкторское бюро</span><i></i></a>
+</nav>
+
+<section class="scena-sekciya v2 fasad t-sleva" id="scena-fasad" data-ekran="fasad" aria-label="Фасад: было и стало">
+  <div class="scena-okno">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/fasad/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/fasad/do.v1.webp" width="1672" height="941" fetchpriority="high"
+           alt="Старое кирпичное здание фабрики: глухие ворота, поддоны с ящиками, шлагбаум у проходной">
+    </picture>
+    <canvas class="scena-posle" aria-hidden="true"></canvas>
+    <div class="scena-zatemnenie" aria-hidden="true"></div>
+    <div class="v2-tekst">
       <h1>Бизнес может работать иначе</h1>
-      <p class="pod">Превращаем разрозненные процессы в единую интеллектуальную систему</p>
-      <p class="stroka">CRM · Автоматизация · AI-агенты</p>
+      <p class="v2-pod">Создаём сайты, приложения, CRM и ИИ-решения и автоматизируем процессы — от отдельных задач до сложных систем.</p>
+      <ul class="v2-napr" aria-label="Направления">
+        <li><a href="#scena-byuro">Сайты</a></li>
+        <li><a href="#scena-byuro">Приложения</a></li>
+        <li><a href="#scena-dispetcherskaya">CRM</a></li>
+        <li><a href="#scena-ceh">Автоматизация</a></li>
+        <li><a href="#scena-priyomnaya">ИИ</a></li>
+      </ul>
+      <button type="button" class="v2-knopka" data-usluga="audit">Обсудить задачу</button>
+      <p class="v2-mel">Первый разбор — бесплатно</p>
     </div>
-
-    <div class="scena-kist-podskazka" aria-hidden="true">Проведите мышью по цеху</div>
     <div class="scena-prokrutka" aria-hidden="true">
       <span>Прокрутите вниз</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
@@ -55,104 +75,145 @@
   </div>
 </section>
 
-<!-- Второй экран: фасад той же фабрики, оффер с главной syntax.help (плашка, заголовок, кнопки, цифры). 06.11.2026.
-     Абзац главной «За вашим текстом — живая система…» не взят: он про анимацию консоли, её здесь нет. -->
-<section class="scena-sekciya polozhenie fasad tekst-sleva" data-ekran="fasad" aria-label="Фасад: было и стало">
+<section class="scena-sekciya v2 priyomnaya t-sleva" id="scena-priyomnaya" data-ekran="priyomnaya" aria-label="Приёмная: было и стало">
   <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/fasad/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async"
-         alt="Старое кирпичное здание фабрики: глухие ворота, поддоны с ящиками, шлагбаум у проходной">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/priyomnaya/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/priyomnaya/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Приёмная в кирпичном цехе: деревянная стойка с вывеской «Заявки», доска с бумагами, стеллаж с папками, кресла, турникет">
+    </picture>
     <canvas class="scena-posle" aria-hidden="true"></canvas>
     <div class="scena-zatemnenie" aria-hidden="true"></div>
-
-    <div class="scena-tekst ofer">
-      <p class="plashka"><span class="tochka" aria-hidden="true"></span><span><b>Бесплатный аудит</b> — покажем, где вы теряете деньги</span></p>
-      <h2>Соберём CRM под ваш процесс и подключим ИИ‑агентов — заявки, ответы, отчёты <span class="akcent">за 5 дней</span></h2>
-      <div class="knopki">
-        <a class="k-glavnaya" href="https://syntax.help/#lead-form">Получить бесплатный аудит →</a>
-        <a class="k-vtoraya" href="https://syntax.help/#pains">Где я теряю деньги</a>
-      </div>
-      <ul class="cifry">
-        <li><b>0 ₽</b> аудит</li>
-        <li><b>130</b> машин · Trip Rent</li>
-        <li><b>5 дней</b> запуск</li>
-        <li><b>152-ФЗ</b> данные в РФ</li>
-      </ul>
+    <div class="v2-tekst">
+      <h2>Ни одна заявка не потеряется</h2>
+      <p class="v2-pod">ИИ-агент отвечает клиентам в Telegram и WhatsApp круглосуточно и сам заносит заявку в CRM.</p>
+      <button type="button" class="v2-knopka" data-usluga="agent">Подключить ИИ-агента →</button>
     </div>
   </div>
 </section>
-
-<!-- Третий экран: приёмная той же фабрики — стойка «ЗАЯВКИ» → стойка syntax.help с роботом и экраном показателей. 06.11.2026.
-     Текст — раздел главной «02 — Ваша CRM». Не взяты номер «02» (раздел 01 в этом прототипе идёт ниже, на экране кабинета)
-     и фраза «Откройте сделку — увидите, что он думает»: она про живую CRM, которая на главной стоит ниже. -->
-<section class="scena-sekciya polozhenie priyomnaya tekst-sleva" data-ekran="priyomnaya" aria-label="Приёмная: было и стало">
+<section class="scena-sekciya v2 dispetcherskaya t-sleva uzko" id="scena-dispetcherskaya" data-ekran="dispetcherskaya" aria-label="Диспетчерская: было и стало">
   <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/priyomnaya/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async"
-         alt="Приёмная в кирпичном цехе: деревянная стойка с вывеской «Заявки», доска с бумагами, стеллаж с папками, кресла, турникет">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/dispetcherskaya/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/dispetcherskaya/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Диспетчерская в кирпичном цехе: доска «Процессы» с заказами мелом, диспетчеры за столами, дисковый телефон, старые мониторы, табличка на двери">
+    </picture>
     <canvas class="scena-posle" aria-hidden="true"></canvas>
     <div class="scena-zatemnenie" aria-hidden="true"></div>
-
-    <div class="scena-tekst ofer">
-      <p class="metka">Ваша CRM</p>
-      <h2>Воронка, в которой сделки двигают агенты</h2>
-      <p class="abzac">Разделы привычные: лента, сделки, задачи, клиенты. Разница в том, что карточку по этапам ведёт не менеджер, а агент: поймал заявку, уточнил детали, забронировал, довёл до оплаты.</p>
-      <div class="knopki"><a class="k-vtoraya" href="https://syntax.help/crm-s-ii-agentami">Как устроена CRM с ИИ-агентами</a></div>
+    <div class="v2-tekst">
+      <h2>Все заказы и сроки — на одном экране</h2>
+      <p class="v2-pod">CRM под ваш процесс показывает, кто что делает, где задержка и что горит сегодня.</p>
+      <button type="button" class="v2-knopka" data-usluga="crm">Собрать CRM под мой процесс →</button>
     </div>
   </div>
 </section>
-
-<!-- Четвёртый экран: кабинет руководителя — бумаги, дисковый телефон, монитор с лучевой трубкой → панель показателей, робот, голограмма завода. 06.11.2026.
-     Текст — раздел главной «01 — Где теряются деньги»: заголовок и строка плана из его терминала.
-     Не взята сумма «−113 000 ₽/нед» из итога терминала главной: из примерных болей рядом она не складывается, а без них читается как обещание. -->
-<section class="scena-sekciya polozhenie kabinet tekst-snizu" data-ekran="kabinet" aria-label="Кабинет руководителя: было и стало">
+<section class="scena-sekciya v2 ceh t-sverhu" id="scena-ceh" data-ekran="ceh" aria-label="Цех: было и стало">
   <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/kabinet/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async"
-         alt="Кабинет руководителя в кирпичном цехе: стол с бумагами, дисковый телефон, старый монитор, шкаф с папками, фотография завода">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/ceh/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/ceh/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Старый кирпичный цех: доска с бумагами, стол мастера с журналами, станки, стеллажи с ящиками">
+    </picture>
     <canvas class="scena-posle" aria-hidden="true"></canvas>
     <div class="scena-zatemnenie" aria-hidden="true"></div>
-
-    <div class="scena-tekst ofer">
-      <p class="metka">Где теряются деньги</p>
+    <div class="v2-tekst">
+      <h2>Рутину делает система, а не люди</h2>
+      <p class="v2-pod">Связываем CRM, учёт, оплату и мессенджеры, чтобы данные больше не переписывали руками.</p>
+      <button type="button" class="v2-knopka" data-usluga="avtomat">Автоматизировать процесс →</button>
+    </div>
+  </div>
+</section>
+<section class="scena-sekciya v2 kabinet t-snizu" id="scena-kabinet" data-ekran="kabinet" aria-label="Кабинет руководителя: было и стало">
+  <div class="scena-okno">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/kabinet/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/kabinet/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Кабинет руководителя в кирпичном цехе: стол с бумагами, дисковый телефон, старый монитор, шкаф с папками, фотография завода">
+    </picture>
+    <canvas class="scena-posle" aria-hidden="true"></canvas>
+    <div class="scena-zatemnenie" aria-hidden="true"></div>
+    <div class="v2-tekst">
       <h2>Спросите систему — она посчитает</h2>
-      <p class="plan">план: <b>аудит</b> → <b>сборка CRM</b> → <b>агенты</b> → <b class="akcent">запуск за 5 дней</b></p>
+      <p class="v2-pod">Выручка, заявки и потери — в одной сводке, без ожидания отчёта от сотрудников.</p>
+      <button type="button" class="v2-knopka" data-usluga="analitika">Настроить отчёты →</button>
     </div>
   </div>
 </section>
-
-<!-- Пятый экран: диспетчерская — доска «ПРОЦЕССЫ» мелом, диспетчеры за столами, мониторы с трубкой → экран процессов syntax.help, один оператор. 06.11.2026.
-     Текст — раздел главной «04 — Что собираем именно вам» и кнопка формы заявки, которая на главной идёт сразу за ним.
-     Не взята фраза «Каждая станция — рабочий этап, а не слайд»: она про схему маршрута, которой здесь нет. -->
-<section class="scena-sekciya polozhenie dispetcherskaya tekst-sleva" data-ekran="dispetcherskaya" aria-label="Диспетчерская: было и стало">
+<section class="scena-sekciya v2 byuro t-sleva-verh" id="scena-byuro" data-ekran="byuro" aria-label="Конструкторское бюро: было и стало">
   <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/dispetcherskaya/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async"
-         alt="Диспетчерская в кирпичном цехе: доска «Процессы» с заказами мелом, диспетчеры за столами, дисковый телефон, старые мониторы, табличка на двери">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/sceny/byuro/mobil-do.v1.webp" width="941" height="1672">
+      <img class="scena-do" src="img/sceny/byuro/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Конструкторское бюро в кирпичном цехе: кульманы с чертежами, инженеры, стол с калькой и инструментами, вывеска «Конструкторское бюро»">
+    </picture>
     <canvas class="scena-posle" aria-hidden="true"></canvas>
     <div class="scena-zatemnenie" aria-hidden="true"></div>
-
-    <div class="scena-tekst ofer">
-      <p class="metka">Что собираем именно вам</p>
-      <h2>Не конвейер, а маршрут под ваш бизнес</h2>
-      <p class="abzac">Начинаем с бесплатного аудита — и от него ветка уходит туда, где у вас реально теряются деньги.</p>
-      <div class="knopki"><a class="k-glavnaya" href="https://syntax.help/#lead-form">Обсудить задачу →</a></div>
+    <div class="v2-tekst">
+      <h2>Сайты и приложения, которые продают</h2>
+      <p class="v2-pod">Делаем сайт или приложение, которое сразу работает с вашей CRM и онлайн-оплатой.</p>
+      <button type="button" class="v2-knopka" data-usluga="sayt">Обсудить сайт или приложение →</button>
     </div>
   </div>
 </section>
 
-<!-- Шестой экран: конструкторское бюро — кульманы, чертежи, вывеска → студия дизайна и разработки syntax.help. 06.11.2026.
-     Своего текста пока нет: подходящего раздела на главной не осталось; текст и формы Александр обсуждает с ChatGPT. -->
-<section class="scena-sekciya byuro" data-ekran="byuro" aria-label="Конструкторское бюро: было и стало">
-  <div class="scena-okno">
-    <img class="scena-do" src="img/sceny/byuro/do.v1.webp" width="1672" height="941" loading="lazy" decoding="async"
-         alt="Конструкторское бюро в кирпичном цехе: кульманы с чертежами, инженеры, стол с калькой и инструментами, вывеска «Конструкторское бюро»">
-    <canvas class="scena-posle" aria-hidden="true"></canvas>
+<section class="k2" id="kejsy" aria-labelledby="kejsy-z">
+  <div class="k2-in">
+    <p class="k2-metka">Кейсы</p>
+    <h2 id="kejsy-z">Что уже работает у клиентов</h2>
+    <p class="k2-pod">Два проекта — два направления: система управления сетью и сайт, работающий на данных CRM.</p>
+    <div class="k2-karty">
+      <article class="k2-karta">
+        <div class="k2-kartinka"><div class="k2-ramka tel">Скриншот Велорента: выдача по QR — с обезличенными данными <span class="soglasovat">нужен</span></div></div>
+        <div class="k2-telo">
+          <p class="k2-napr">CRM и автоматизация · ВелоМоре</p>
+          <h3>Сеть велопроката — в одной системе</h3>
+          <p>Точки и склад ВелоМоре работают в Велоренте: менеджеры выдают велосипеды по QR-коду с телефона, владелец видит аренды и кассу каждой точки.</p>
+          <p class="k2-cifra"><b>10 000+ аренд</b>за сезон 2026</p>
+          <a class="k2-ssylka" href="kejs-velomore.html">Смотреть кейс →</a>
+        </div>
+      </article>
+      <article class="k2-karta">
+        <div class="k2-kartinka"><img class="k2-snimok" src="img/kejsy-v2/trip-rent-mashina.jpg" alt="Страница машины на trip-rent.ru: фото, выбор дат, места получения и стоимость" loading="lazy" width="2560" height="1440"></div>
+        <div class="k2-telo">
+          <p class="k2-napr">Сайты и интеграции · Trip Rent</p>
+          <h3>Клиенты сами бронируют и оплачивают машину</h3>
+          <p>Сайт trip-rent.ru работает на данных CRM проката RentProg: каталог, цены и свободные даты — из CRM, бронь и отметка об оплате записываются в неё.</p>
+          <a class="k2-ssylka" href="kejs-trip-rent.html">Смотреть кейс →</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="dalshe">
+<section class="v2-dalshe" id="dalshe">
   <div>
-    <h2>Дальше — следующие экраны</h2>
-    <p>Здесь будут следующие сцены того же здания. Какая картинка на каком экране и с каким текстом — выбираем после генерации пар.</p>
+    <h2>Дальше — остальные блоки после сцен</h2>
+    <ul><li>Услуги — шесть карточек</li><li>Как работаем</li><li>Команда и доверие</li><li>Основная форма</li></ul>
+    <p>Следующий шаг сборки, по документу структуры.</p>
   </div>
 </section>
+
+<div class="v2-forma-fon" hidden>
+  <form class="v2-forma" role="dialog" aria-modal="true" aria-labelledby="v2-forma-z" novalidate>
+    <button type="button" class="v2-zakryt" aria-label="Закрыть">×</button>
+    <div class="v2-polya">
+      <p class="z" id="v2-forma-z">Обсудим задачу</p>
+      <p class="u" id="v2-forma-u">Услуга выбрана по кнопке — можно поменять</p>
+      <label>Ваше имя<input name="name" required autocomplete="name"></label>
+      <label>Telegram или телефон<input name="contact" required autocomplete="tel"></label>
+      <label>Что нужно<select name="usluga" id="v2-usluga">
+        <option value="audit">Не знаю, с чего начать — нужен аудит</option>
+        <option value="agent">ИИ-агент: заявки и ответы клиентам</option>
+        <option value="crm">CRM под процесс</option>
+        <option value="avtomat">Автоматизация и интеграции</option>
+        <option value="analitika">Аналитика и отчёты</option>
+        <option value="sayt">Сайт или приложение</option>
+      </select></label>
+      <input type="hidden" name="scena" id="v2-scena">
+      <button type="submit" class="v2-knopka">Отправить заявку</button>
+      <p class="m">152-ФЗ · данные не передаём третьим лицам · <a href="https://t.me/syntax_ai_agency" target="_blank" rel="noopener">или напишите в Telegram →</a></p>
+    </div>
+    <div class="v2-spasibo" hidden>
+      <p class="z">Спасибо! Заявка отправлена</p>
+      <p class="m">Это прототип: заявка никуда не ушла.</p>
+    </div>
+  </form>
+</div>
 
 <aside class="panel" hidden aria-label="Панель сравнения">
   <div class="p-ryad"><b>Вариант</b>
@@ -176,10 +237,6 @@
   <label title="Пока экран въезжает, кисть, ореол и прокрутка ничего не открывают — видно «до» целиком. Отсчёт — с момента, когда экран встал целиком. Только компьютер: на телефоне кисти нет, а экран не залипает">кисть и прокрутка через <input type="range" id="p-otkrytie" min="0" max="2" step="0.1" value="0.5"><span id="p-otkrytie-z"></span></label>
   <label title="Выключено: при прокрутке вверх открытое остаётся. Включено: закрывается обратно. Мазки кисти не стираются никогда"><input type="checkbox" id="p-otkat"> при прокрутке вверх закрывать открытое</label>
   <label title="Заголовки и затемнение под ними на всех экранах. Снять — посмотреть картинки чистыми"><input type="checkbox" id="p-tekst" checked> текст на экранах (T)</label>
-  <label title="Где на фасаде стоит оффер с кнопками. Затемнение переезжает вместе с текстом. На телефоне текст всегда сверху">текст на фасаде <select id="p-fasad-tekst" data-tekst="fasad"><option value="sleva">слева</option><option value="sprava">справа</option><option value="sverhu">сверху</option><option value="snizu">снизу</option></select></label>
-  <label title="Где в приёмной стоит текст про CRM. Затемнение переезжает вместе с текстом. На телефоне текст всегда сверху">текст в приёмной <select id="p-priyomnaya-tekst" data-tekst="priyomnaya"><option value="sleva">слева</option><option value="sprava">справа</option><option value="sverhu">сверху</option><option value="snizu">снизу</option></select></label>
-  <label title="Где в кабинете стоит текст «Спросите систему». Затемнение переезжает вместе с текстом. На телефоне текст всегда сверху">текст в кабинете <select id="p-kabinet-tekst" data-tekst="kabinet"><option value="sleva">слева</option><option value="sprava">справа</option><option value="sverhu">сверху</option><option value="snizu" selected>снизу</option></select></label>
-  <label title="Где в диспетчерской стоит текст с кнопкой. Затемнение переезжает вместе с текстом. На телефоне текст всегда сверху">текст в диспетчерской <select id="p-dispetcherskaya-tekst" data-tekst="dispetcherskaya"><option value="sleva">слева</option><option value="sprava">справа</option><option value="sverhu">сверху</option><option value="snizu">снизу</option></select></label>
   <label title="Надпись внизу цеха. Только в вариантах A и B и только при мыши"><input type="checkbox" id="p-podskazka"> подсказка «проведите мышью»</label>
   <label title="Кнопки становятся 1/2/3 в случайном порядке — показывать человеку, не называя вариант. Каждое включение перемешивает заново"><input type="checkbox" id="p-slepoj"> слепой режим — варианты под номерами</label>
   <div class="p-ryad"><button id="p-raskryt" hidden>Раскрыть номера</button><span id="p-rasklad"></span></div>
@@ -192,7 +249,8 @@
 
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/scena/scena.js?m=0611f"></script>
-<script src="js/scena/zapusk.js?m=0611f"></script>
+<script src="js/scena/scena.js?m=0711a"></script>
+<script src="js/scena/zapusk-v2.js?m=0711d"></script>
+<script src="js/scena/v2-dop.js?m=0711a"></script>
 </body>
 </html>

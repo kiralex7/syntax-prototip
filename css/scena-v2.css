@@ -1,0 +1,89 @@
+/* Прототип v2 — новая структура (документ sayt-syntax-struktura-06-11.html, принят 06.11). Поверх scena.css, его не меняет.
+   Сцена: заголовок, одно предложение, одна кнопка. Компьютер — место текста у каждой сцены своё; телефон — всё внизу. 07.11.2026. */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Сцена залипает: компьютер — на одну высоту окна (решение 2); телефон — на полторы (07.11: «сначала менялась картинка,
+   потом двигалась до следующего экрана, останавливалась — небольшой скролл без смены и опять смена») */
+.scena-sekciya.v2{height:250vh;height:250svh}
+@media (hover:hover) and (pointer:fine){.scena-sekciya.v2{height:200vh;height:200svh}}
+
+/* Шапка держится сверху на всех сценах */
+.scena-shapka.v2-shapka{position:fixed;z-index:30}
+
+/* Точки-переходы к сценам (решение 2) */
+.v2-tochki{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:25;display:flex;flex-direction:column;gap:6px}
+.v2-tochki a{display:flex;align-items:center;justify-content:flex-end;gap:10px;min-height:28px;color:#fff;text-decoration:none;font-size:13px}
+.v2-tochki a span{opacity:0;transition:opacity .2s;background:rgba(8,9,14,.7);padding:3px 8px;border-radius:6px}
+.v2-tochki a:hover span,.v2-tochki a:focus-visible span{opacity:1}
+.v2-tochki a i{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.8);background:transparent;flex:none}
+.v2-tochki a.on i{background:#fff}
+
+/* Текст сцены */
+.v2-tekst{position:absolute;z-index:3;width:min(560px,34vw);pointer-events:none;color:#fff}
+.v2-tekst h1,.v2-tekst h2{margin:0 0 .35em;font-weight:700;font-size:clamp(30px,3.1vw,56px);line-height:1.06;letter-spacing:-.02em;text-shadow:0 2px 28px rgba(0,0,0,.6)}
+.v2-tekst .v2-pod{margin:0 0 20px;color:rgba(255,255,255,.92);font-size:clamp(16px,1.2vw,20px);line-height:1.45;text-shadow:0 1px 14px rgba(0,0,0,.75)}
+.v2-knopka{pointer-events:auto;display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border:0;border-radius:12px;background:#5B5BD6;color:#fff;
+  font:600 17px/1 Inter,system-ui,sans-serif;cursor:pointer;transition:background .2s}
+.v2-knopka:hover{background:#4c4cc4}
+.v2-knopka:focus-visible,.v2-napr a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.v2-mel{margin:10px 0 0;color:rgba(255,255,255,.75);font-size:14px;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+.v2-napr{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.v2-napr a{pointer-events:auto;display:inline-flex;align-items:center;min-height:38px;padding:0 16px;border:1px solid rgba(255,255,255,.5);border-radius:999px;
+  background:rgba(8,9,14,.45);color:#fff;text-decoration:none;font-size:15px;transition:border-color .2s,background .2s}
+.v2-napr a:hover{border-color:#fff;background:rgba(91,91,214,.5)}
+
+/* Места текста на компьютере и затемнение под ним */
+.v2.t-sleva .v2-tekst{left:clamp(24px,5vw,96px);top:50%;transform:translateY(-50%)}
+.v2.t-sleva-verh .v2-tekst{left:clamp(24px,5vw,96px);top:clamp(96px,14vh,150px)}
+.v2.t-sverhu .v2-tekst{left:50%;top:clamp(90px,12vh,140px);transform:translateX(-50%);width:min(820px,64vw);text-align:center}
+.v2.t-snizu .v2-tekst{left:50%;bottom:clamp(28px,6vh,64px);transform:translateX(-50%);width:min(900px,70vw);text-align:center}
+.v2.uzko .v2-tekst{width:min(500px,27vw)}
+.v2.t-sleva .scena-zatemnenie{background:linear-gradient(to right, rgba(8,9,14,.84) 0%, rgba(8,9,14,.6) 26%, rgba(8,9,14,0) 46%)}
+.v2.t-sleva-verh .scena-zatemnenie{background:radial-gradient(ellipse 42% 55% at 18% 28%, rgba(8,9,14,.82), rgba(8,9,14,.55) 50%, rgba(8,9,14,0) 85%)}
+.v2.t-sverhu .scena-zatemnenie{background:radial-gradient(ellipse 50% 40% at 50% 20%, rgba(8,9,14,.82), rgba(8,9,14,.55) 45%, rgba(8,9,14,0) 80%)}
+.v2.t-snizu .scena-zatemnenie{background:linear-gradient(to top, rgba(8,9,14,.86) 0%, rgba(8,9,14,.6) 22%, rgba(8,9,14,0) 40%)}
+
+/* Телефон: всё внизу — заголовок и кнопка во всю ширину; пояснение скрыто. На фасаде ещё направления (листаются вбок) */
+@media (max-width:767px){
+  .v2-tochki{display:none}
+  .v2 .v2-tekst,.v2.t-sleva .v2-tekst,.v2.t-sleva-verh .v2-tekst,.v2.t-sverhu .v2-tekst,.v2.t-snizu .v2-tekst,.v2.uzko .v2-tekst{
+    left:16px;right:16px;top:auto;bottom:calc(18px + env(safe-area-inset-bottom));transform:none;width:auto;text-align:left}
+  .v2-tekst h1,.v2-tekst h2{font-size:clamp(28px,8vw,36px)}
+  .v2-tekst .v2-pod{display:none}
+  .v2-knopka{display:flex;justify-content:center;width:100%;min-height:52px}
+  .v2-mel{text-align:center}
+  .v2-napr{flex-wrap:nowrap;overflow-x:auto;margin:0 -16px 14px;padding:0 16px;scrollbar-width:none}
+  .v2-napr::-webkit-scrollbar{display:none}
+  .v2-napr a{white-space:nowrap}
+  .v2 .scena-zatemnenie,.v2.t-sleva .scena-zatemnenie,.v2.t-sleva-verh .scena-zatemnenie,.v2.t-sverhu .scena-zatemnenie,.v2.t-snizu .scena-zatemnenie{
+    background:linear-gradient(to top, rgba(8,9,14,.88) 0%, rgba(8,9,14,.66) 22%, rgba(8,9,14,0) 36%)}
+  .v2.fasad .scena-zatemnenie{background:linear-gradient(to top, rgba(8,9,14,.9) 0%, rgba(8,9,14,.7) 30%, rgba(8,9,14,0) 46%)}
+  .v2 .scena-prokrutka{display:none}
+}
+
+/* Короткая форма: компьютер — окно справа; телефон — выезжает снизу */
+.v2-forma-fon{position:fixed;inset:0;z-index:60;background:rgba(5,6,10,.55);display:flex;justify-content:flex-end;align-items:center;padding:24px}
+.v2-forma-fon[hidden]{display:none}
+.v2-forma{position:relative;width:min(420px,100%);background:#14151d;color:#fff;border-radius:16px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.v2-forma .z{margin:0 0 4px;font-size:22px;font-weight:700}
+.v2-forma .u{margin:0 0 16px;color:#b4b4ff;font-size:14px}
+.v2-forma label{display:block;margin:0 0 12px;font-size:14px;color:#c8c8d6}
+.v2-forma input,.v2-forma select{display:block;width:100%;margin-top:6px;min-height:48px;padding:0 12px;border:1px solid #3b3c4c;border-radius:10px;background:#1c1d27;color:#fff;font:16px Inter,system-ui,sans-serif}
+.v2-forma input:focus,.v2-forma select:focus{outline:2px solid #5B5BD6;border-color:#5B5BD6}
+.v2-forma .v2-knopka{width:100%;justify-content:center;margin-top:6px}
+.v2-forma .m{margin:12px 0 0;font-size:12px;color:#9a9ab0}
+.v2-forma .m a{color:#b4b4ff}
+.v2-zakryt{position:absolute;top:10px;right:10px;width:44px;height:44px;border:0;border-radius:10px;background:transparent;color:#fff;font-size:26px;cursor:pointer}
+.v2-zakryt:hover{background:rgba(255,255,255,.08)}
+.v2-spasibo{padding:30px 0 10px;text-align:center}
+@media (max-width:767px){
+  .v2-forma-fon{align-items:flex-end;justify-content:center;padding:0}
+  .v2-forma{width:100%;border-radius:18px 18px 0 0;padding:22px 16px calc(22px + env(safe-area-inset-bottom))}
+}
+
+/* Что дальше — заглушка блоков после сцен */
+.v2-dalshe{min-height:80vh;padding:96px 24px;background:#0b0c10;color:#ececf2}
+.v2-dalshe div{max-width:760px;margin:0 auto}
+.v2-dalshe h2{font-size:clamp(26px,3vw,40px);margin:0 0 .5em}
+.v2-dalshe li{font-size:18px;line-height:1.6;color:#b9b9c6}
